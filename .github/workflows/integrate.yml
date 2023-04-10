@@ -1,0 +1,34 @@
+name: Continuous Integration
+run-name: Build and Test by @${{ github.actor }}
+
+on: 
+  push:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout branch
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    
+    - name: Install packages
+      uses: Borales/actions-yarn@v4.2.0
+      with:
+        cmd: install
+    
+    - name: Run tests
+      uses: Borales/actions-yarn@v4.2.0
+      with:
+        cmd: test
+    
+    - name: Build the project
+      uses: Borales/actions-yarn@v4.2.0
+      with:
+        cmd: build
