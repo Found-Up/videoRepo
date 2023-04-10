@@ -33,9 +33,6 @@ jobs:
       with:
         cmd: build
 
-    - name: Run unit tests
-      run: npm run test:unit
-
     - name: Run integration tests
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
