@@ -1,6 +1,6 @@
 
 import { IsString, IsNotEmpty } from 'class-validator';
-import type { File } from 'multer';
+import type { File } from 'multer-s3';
 
 export class CreateVideoDto {
   @IsString()
